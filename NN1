@@ -1,12 +1,12 @@
-;(define threshold-weights '(((1.5 1 1)))) ; this is for the AND function
-;(define threshold-weights '(((0.5 1 1)))) ; this is for the OR function
-;(define threshold-weights '(((.6 1 -.5) (.6 -.5 1)) ; this is for the  exclusive OR function
-;                          ((.4 1 1))))
+;(define threshold-weights '(((10 10 10)))) ; this is for the AND function
+;(define threshold-weights '(((5 10 10)))) ; this is for the OR function
+;(define threshold-weights '(((60 100 -50) (60 -50 100)) ; this is for the XOR function
+                           ;((40 100 100))))
 
-;(define threshold-weights '(((-1.5 -1 -1)))) ; this is for the NOT AND function
-;(define threshold-weights '(((-0.5 -1 -1)))) ; this is for the NOT OR function
-(define threshold-weights '(((.6 1 -.5) (.6 -.5 1)) ; this is for the  exclusive NOT OR function
-                          ((-.4 -1 -1))))
+;(define threshold-weights '(((-10 -10 -10)))) ; this is for the NOT AND function
+;(define threshold-weights '(((-5 -10 -10)))) ; this is for the NOT OR function
+;(define threshold-weights '(((60 100 -50) (60 -50 100)) ; this is for the NOT XOR function
+                           ;((-40 -100 -100))))
 
 (define NN
   (lambda (lst)
@@ -44,4 +44,6 @@
 
 (define g
   (lambda (x)
-    (if (> x 0) 1 0)))
+    (/ 1 (+ 1 (exp (- x)))))) 
+
+
